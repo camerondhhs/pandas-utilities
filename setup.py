@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="PandasUtilities",  # Replace with your desired package name
+    name="pandas-utilities",  # Replace with your desired package name
     version="0.1.0",  # Increment this for each release
     description="A collection of utilities for pandas data processing",
     author="Cameron",
