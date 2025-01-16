@@ -7,7 +7,7 @@ nltk.download('vader_lexicon')
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 sid = SentimentIntensityAnalyzer()
 
-def ntlksentiment(comment: str ) -> dict:
+def nltksentiment(comment: str ) -> dict:
     print(comment)
     if (isinstance(comment, str)):
         x = sid.polarity_scores(comment)
