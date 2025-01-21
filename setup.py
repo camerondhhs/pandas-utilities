@@ -1,22 +1,21 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="pandas_utilities",  # Replace with your desired package name
-    version="0.1.0",  # Increment this for each release
+    name="pandas_utilities", 
+    version="0.1.0",
     description="A collection of utilities for pandas data processing",
     author="Cameron",
-    author_email="your_email@example.com",  # Replace with the maintainer's email
-    url="https://github.com/camerondhhs/pandas-utilities",  # GitHub repo URL
-    packages=find_packages(),  # Automatically find all packages and subpackages
+    url="https://github.com/camerondhhs/pandas-utilities",
+    packages=find_packages(),
     install_requires=[
-        "pandas>=1.0",  # Add your project's dependencies
-        "nltk>=3.0",    # If `nltk` is required
+        "pandas>=1.0",
+        "nltk>=3.0",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",  # Adjust license if needed
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7",  # Adjust Python version compatibility
+    python_requires=">=3.7",
 )
 
