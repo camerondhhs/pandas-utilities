@@ -2,6 +2,7 @@ import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from torch.nn.functional import softmax
 import pandas as pd
+from tqdm import tqdm
 
 def load_model_and_tokenizer(model_name):
     """
@@ -46,5 +47,6 @@ def process_comments(df, model_name):
         return sentiment_label, confidence_score
 
     # Apply sentiment analysis to each comment in the DataFrame
-    df[['sentiment', 'confidence']] = df['Comments'].apply(lambda x: pd.Series(analyze_and_label(x)))
+    # df[['sentiment', 'confidence']] = df['Comments'].apply(lambda x: pd.Series(analyze_and_label(x)))
+    df[['sentiment', 'confidence']] = df['Comments'].progress_apply(lambda x: pd.Series(analyze_and_label(x)))
     return df

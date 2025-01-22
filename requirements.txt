@@ -1,6 +1,7 @@
-pandas
+flashtext2
 nltk
+pandas
 spacy
 torch
+tpdm
 transformers
-flashtext2
