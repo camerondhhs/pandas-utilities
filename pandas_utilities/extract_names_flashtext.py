@@ -2,6 +2,10 @@ import pandas as pd
 from flashtext2 import KeywordProcessor
 
 def format_list(lst: list) -> str:
+    """Format a list into a comma-separated string with unique entries."""
+    return ', '.join(map(str, sorted(set(lst)))) if lst else ''
+
+def format_list_all(lst: list) -> str:
     """Format a list into a comma-separated string."""
     return ', '.join(map(str, lst)) if lst else ''
 
