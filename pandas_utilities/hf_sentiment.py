@@ -48,5 +48,9 @@ def process_comments(df, model_name):
 
     # Apply sentiment analysis to each comment in the DataFrame
     # df[['sentiment', 'confidence']] = df['Comments'].apply(lambda x: pd.Series(analyze_and_label(x)))
-    df[['sentiment', 'confidence']] = df['Comments'].progress_apply(lambda x: pd.Series(analyze_and_label(x)))
+    # Enable tqdm progress bar for DataFrame apply
+    tqdm.pandas(desc="Processing Comments")
+    df[['sentiment', 'confidence']] = df.progress_apply(
+        lambda row: pd.Series(analyze_and_label(row['Comments'])), axis=1
+    )
     return df
