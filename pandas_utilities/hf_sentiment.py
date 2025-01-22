@@ -46,5 +46,5 @@ def process_comments(df, model_name):
         return sentiment_label, confidence_score
 
     # Apply sentiment analysis to each comment in the DataFrame
-    df[['sentiment', 'confidence']] = df['comments'].apply(lambda x: pd.Series(analyze_and_label(x)))
+    df[['sentiment', 'confidence']] = df['Comments'].apply(lambda x: pd.Series(analyze_and_label(x)))
     return df
