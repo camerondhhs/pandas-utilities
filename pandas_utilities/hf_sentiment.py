@@ -1,6 +1,7 @@
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
 from torch.nn.functional import softmax
+import pandas
 
 def load_model_and_tokenizer(model_name):
     """
@@ -23,7 +24,8 @@ def analyze_sentiment(model_name, sentence):
 
 def label_sentiment(predictions):
     """
-    Convert sentiment predictions to human-readable labels.
+    Convert sentiment predictions to human-readable labels and return with confidence score.
     """
     labels = ["Negative", "Positive"]
-    return labels[predictions.index(max(predictions))]
+    max_index = predictions.index(max(predictions))
+    return labels[max_index], predictions[max_index]
