@@ -3,6 +3,10 @@ import torch
 import pandas as pd
 from tqdm import tqdm
 
+model_name = 'parsawar/profanity_model_3.1'
+tokenizer =  AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+
 def detect_profanity(text):
   if pd.isna(text) or text.strip() == "":
     return 0.0, [0,0, 0.0]
