@@ -41,13 +41,12 @@ def get_nltk_sentiment(comment: str) -> Dict[str, Any]:
     }
 
 def get_nltk_sentiment_label(comment: str) -> str:
+    if not comment or pd.isna(comment) or comment.strip() == "":
+        return "Neutral"  # Default label for empty/missing comments
+
     sentiment_scores = sid.polarity_scores(comment)
     compound = sentiment_scores['compound']
-    neg = sentiment_scores['neg']
-    neu = sentiment_scores['neu']
-    pos = sentiment_scores['pos']
 
-    # Determine sentiment status
     if compound >= 0.05:
         sentiment = 'Positive'
     elif compound <= -0.05:
