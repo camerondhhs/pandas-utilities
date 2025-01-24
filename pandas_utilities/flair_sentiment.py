@@ -1,5 +1,6 @@
 from flair.data import Sentence
 from flair.nn import Classifier
+import pandas as pd
 tagger = Classifier.load('sentiment')
 def get_flair_sentiment_label(comment: str) -> str:
   if not comment or pd.isna(comment) or comment.strip() == "":
