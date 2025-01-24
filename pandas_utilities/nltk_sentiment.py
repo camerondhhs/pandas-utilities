@@ -26,11 +26,11 @@ def get_nltk_sentiment(comment: str) -> Dict[str, Any]:
 
     # Determine sentiment status
     if compound >= 0.05:
-        sentiment = 'positive'
+        sentiment = 'Positive'
     elif compound <= -0.05:
-        sentiment = 'negative'
+        sentiment = 'Negative'
     else:
-        sentiment = 'neutral'
+        sentiment = 'Neutral'
 
     return {
         'sentiment': sentiment,
