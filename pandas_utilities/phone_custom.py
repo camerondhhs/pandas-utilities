@@ -20,11 +20,14 @@ class CustomRegex(CommonRegex):
 # Function to extract dates, emails, addresses, and phones using CommonRegex
 def extract_common_regex_info(text):
     if not text or not isinstance(text, str) or text.strip() == "":
-        return None, None, None, None  # Return None for all fields if empty
+        return "", "", "", ""  # Return empty strings for all fields if the input is empty
     
     parser = CustomRegex(text)
-    dates = parser.dates
-    emails = parser.emails
-    addresses = parser.street_addresses
-    all_phones = parser.get_all_phones()
+    
+    # Ensure empty strings instead of empty lists
+    dates = ", ".join(parser.dates) if parser.dates else ""
+    emails = ", ".join(parser.emails) if parser.emails else ""
+    addresses = ", ".join(parser.street_addresses) if parser.street_addresses else ""
+    all_phones = ", ".join(parser.get_all_phones()) if parser.get_all_phones() else ""
+
     return dates, emails, addresses, all_phones
