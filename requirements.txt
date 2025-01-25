@@ -1,3 +1,4 @@
+commonregex
 flair
 flashtext2
 nltk
