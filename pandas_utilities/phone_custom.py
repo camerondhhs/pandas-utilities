@@ -19,8 +19,8 @@ class CustomRegex(CommonRegex):
     
 # Function to extract dates, emails, addresses, and phones using CommonRegex
 def extract_common_regex_info(text):
-    if not isinstance(text, str):
-        raise ValueError("Input must be a string")
+    if not text or not isinstance(text, str) or text.strip() == "":
+        return None, None, None, None  # Return None for all fields if empty
     
     parser = CustomRegex(text)
     dates = parser.dates
