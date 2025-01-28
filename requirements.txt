@@ -1,0 +1,9 @@
+commonregex
+flair
+flashtext2
+nltk
+pandas
+spacy
+torch
+tqdm
+transformers
