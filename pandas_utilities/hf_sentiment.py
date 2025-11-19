@@ -10,6 +10,7 @@ def load_model_and_tokenizer(model_name):
     """
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
+    tokenizer.model_max_length = 512
     return model, tokenizer
 
 def analyze_sentiment(model_name, sentence):
@@ -37,7 +38,7 @@ def process_comments(df, model_name):
     """
     # Load model and tokenizer once for efficiency
     model, tokenizer = load_model_and_tokenizer(model_name)
-    tokenizer.model_max_length = 512
+    # tokenizer.model_max_length = 512
 
     # Function to analyze a single comment
     def analyze_and_label(comment):
