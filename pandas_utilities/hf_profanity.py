@@ -9,7 +9,7 @@ model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
 def detect_profanity(text):
   if pd.isna(text) or text.strip() == "":
-    return 0.0, [0,0, 0.0]
+    return 0.0, [0.0, 0.0]
   inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True)
   with torch.no_grad():
     outputs = model(**inputs)
